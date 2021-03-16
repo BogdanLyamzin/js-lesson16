@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Примеры красивого оформления цитат на сайте</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Примеры красивого оформления цитат на сайте" />
+    <meta name="author" content="HTML5BOOK" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link href='https://fonts.googleapis.com/css?family=Poiret+One&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <section>
+            <blockquote>
+                <p id="first-quote">I invented my life by taking for granted that everything I did not like would have an opposite, which I would like.</p>
+            </blockquote>                      
+        </section>
+    </div>
+    <script>
+        
+        const firstQuote = document.getElementById("first-quote");
+
+        const newQuote = document.createElement("blockquote");
+
+        const firstText = "На Темную сторону Силы любовь к БДСМ приводит.";
+        
+        newQuote.innerHTML = `<p>${firstText}</p>`;
+        
+        const firstQuoteParent = firstQuote.closest("blockquote");
+        
+        firstQuoteParent.after(newQuote);
+        /*
+        const firstQuoteP = document.createElement("p");
+
+        firstQuoteP.textContent = "На Темную сторону Силы любовь к БДСМ приводит.";
+        
+        newQuote.append(firstQuoteP);
+        
+        const firstQuoteParent = firstQuote.closest("blockquote");
+        
+        firstQuoteParent.after(newQuote);
+        
+        const secondNewQuote = document.createElement("blockquote");
+        
+        const secondQuoteP = document.createElement("p");
+        
+        secondQuoteP.textContent = "Идите нахер";
+        
+        secondNewQuote.append(secondQuoteP);
+        
+        newQuote.after(secondNewQuote);
+
+        */
+        
+    </script>
+
+</body>
+
+</html>
+
+
+
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Примеры красивого оформления цитат на сайте</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Примеры красивого оформления цитат на сайте" />
+    <meta name="author" content="HTML5BOOK" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link href='https://fonts.googleapis.com/css?family=Poiret+One&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <section id="quotes">
+            <blockquote>
+                <p>I invented my life by taking for granted that everything I did not like would have an opposite, which I would like.</p>
+            </blockquote>
+        </section>
+    </div>
+    <script>
+        
+        const quotesList = document.getElementById("quotes");
+
+        // создаем тег blockquote - внутри которого будет наша цитата. Он пока находится в памяти браузера, а не на странице
+        const firstQuote = document.createElement("blockquote");
+
+        // Выведем тег в консоль - видите, тег есть, Но на странице его пока нет
+        console.log(firstQuote);
+
+        // создаем тег p - внутри которого будет текст. Он пока находится в памяти браузера, а не на странице
+        const firstQuoteP = document.createElement("p");
+
+        console.log(firstQuoteP);
+        
+        // вставляем текст внутрь созданного нами тега p. У каждого тега есть свойство textContent - это текстовое содержимое нашего тега
+        firstQuoteP.textContent = "На Темную сторону Силы любовь к БДСМ приводит.";
+
+        // Выведем тег в консоль - видите, тег есть, Но на странице его пока нет
+        console.log(firstQuoteP);
+
+        // Вставляем внутрь созданного нами тега blockquote созданный нами тег p, внутрь которого мы положили текст
+        // метод append вставляет тег в конец списка дочерних элементов тега, у которого он вызван, в данном случае - blockquote
+        firstQuote.append(firstQuoteP);
+        
+        console.log(firstQuote);
+        
+        // Теперь у нас в памяти браузера есть 2 тега - blockquote и p, но их по прежнему нет на странице.
+
+        // Вставляем внутрь нашего списка цитат созданную нами цитату, состояющую из двух тегов
+        // метод append вставляет тег в конец списка дочерних элементов тега, у которого он вызван, в данном случае - section с id quotes        
+        quotesList.append(firstQuote);
+        
+
+        // создаем тег blockquote - внутри которого будет наша цитата. Он пока находится в памяти браузера, а не на странице
+        const secondQuote = document.createElement("blockquote");
+
+        // создаем тег p - внутри которого  текст. Он пока находится в памяти браузера, а не на странице
+        const secondQuoteP = document.createElement("p");
+
+        // вставляем текст внутрь созданного нами тега p. У каждого тега есть свойство textContent - это текстовое содержимое нашего тега
+        secondQuoteP.textContent = "Идите нахер! Л. Джеймс, автор '50 оттенков серого'";
+
+        // Вставляем внутрь созданного нами тега blockquote созданный нами тег p, внутрь которого мы текст
+        // метод prepend вставляет тег в начало списка дочерних элементов тега, у которого он вызван, в данном случае - blockquote
+        secondQuote.prepend(secondQuoteP);
+        // Теперь у нас в памяти браузера есть 2 тега - blockquote и p, но их по прежнему нет на странице.
+
+        // Вставляем внутрь нашего списка цитат созданную нами цитату, состояющую из двух тегов
+        // метод prepend вставляет тег в начало списка дочерних элементов тега, у которого он вызван, в данном случае - section с id quotes        
+        quotesList.prepend(secondQuote);        
+
+    </script>
+
+</body>
+
+</html>
