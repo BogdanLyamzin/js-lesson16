@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-    <ol id="list">
-        <li>Толстый котик</li>
-        <li>Корги</li>
-        <li>Ника</li>
-        <li>Маленький Йода</li>
-    </ol>
-    <script>
-        /*
-        Спросите у пользователя текст, который нужно удалить.
-        После чего удалите элемент из списка с id="list", который
-        содержит этот текст.
-        */
+  <p>
+    <a href="#" class="collapse-link" data-info="А какая вам разница?">Ваша процентная ставка</a>
+  </p>
+  <p>
+    <a href="#" class="collapse-link" data-info="42 и одно крылышко">Ваша рост в попугаях</a>
+  </p>
+  
+  <script>
+    const collapseItems = document.querySelectorAll(".collapse-link");
 
-    </script>
+    collapseItems.forEach(element => element.addEventListener("click", collapse))
+
+    function collapse(){
+      const {nextElementSibling} = this;
+
+      if(nextElementSibling && nextElementSibling.classList.contains("collapse-link-more")){
+        nextElementSibling.remove();
+      }
+      else {
+        const {info} = this.dataset;
+        const collapseElement = document.createElement("span");
+        collapseElement.textContent = info;
+        collapseElement.classList.add("collapse-link-more");
+        this.after(collapseElement)
+      }
+    }
+
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-

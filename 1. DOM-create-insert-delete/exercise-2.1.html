@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="faq-list" class="faq-list">
+
+  </div>
+
+  <script>
+
+    class Collapse {
+      constructor({smallText, fullText, classList = []}){
+        this.smallText = smallText;
+        this.fullText = fullText;
+        this.classList = [...classList];
+        this.elem = null;
+      }
+
+      collapse(){
+        const {nextElementSibling} = this.elem;
+
+        if(nextElementSibling && nextElementSibling.classList.contains("collapse-link-more")){
+          nextElementSibling.remove();
+        }
+        else {
+          const collapseElement = document.createElement("span");
+          collapseElement.textContent = this.fullText;
+          collapseElement.classList.add("collapse-link-more");
+          this.elem.after(collapseElement)
+        }
+      }
+
+      render(){
+        const element = document.createElement("a");
+        element.href = "#";
+        element.addEventListener("click", this.collapse.bind(this));
+        element.textContent = this.smallText;
+        this.elem = element;
+        return this.elem;
+      }
+    }
+
+    const collaspseArr = [
+      {
+        smallText: "Ваша процентная ставка",
+        fullText: "А какая вам разница?",
+        classList: ["collapse-link", "link"]
+      },
+      {
+        smallText: "Ваша рост в попугаях",
+        fullText: "42 и одно крылышко"
+      },
+    ];
+
+    const faqList = document.getElementById("faq-list");
+
+    const faqElements = collaspseArr.map(item => {
+      const faqObj = new Collapse(item);
+      const paragraph = document.createElement("p")
+      const faqElement = faqObj.render();
+      paragraph.append(faqElement)
+      return paragraph;
+    });
+    faqList.append(...faqElements);
+
+  </script>
+</body>
+</html>

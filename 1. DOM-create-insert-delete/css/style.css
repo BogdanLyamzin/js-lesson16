@@ -83,7 +83,7 @@ blockquote {
     font-family: 'Lato', sans-serif;
 }
 
-blockquote:before {
+blockquote::before {
     content: "\201C";
     font-family: serif;
     position: absolute;

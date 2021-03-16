@@ -21,6 +21,10 @@
             align-items: flex-start;
         }
 
+        .delete-case {
+            cursor: pointer;
+        }
+
     </style>
 </head>
 
@@ -42,9 +46,22 @@
 
         while(caseName !== null){
             if(caseName !== ""){
+                /*
+                <li class="case-item">gggg
+                    <span class="delete-case">X</span>
+                </li>
+                */
                 const caseElement = document.createElement("li");
                 caseElement.classList.add("case-item");
                 caseElement.textContent = caseName;
+
+                const deleteButton = document.createElement("span");
+                deleteButton.textContent = "X"
+                deleteButton.addEventListener("click", function(){
+                    const caseElement = this.closest("li");
+                    caseElement.remove();
+                });
+                caseElement.insertAdjacentElement("beforeend", deleteButton)
                 caseList.append(caseElement);
             }
             caseName = prompt("Введите дело");

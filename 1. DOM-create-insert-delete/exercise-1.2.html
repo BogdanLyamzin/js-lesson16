@@ -40,16 +40,24 @@
         const caseList = document.getElementById("case-list");
         let caseName = prompt("Введите дело");
 
+        const caseArr = [];
+
         while(caseName !== null){
             if(caseName !== ""){
-                const caseElement = document.createElement("li");
-                caseElement.classList.add("case-item");
-                caseElement.textContent = caseName;
-                caseList.append(caseElement);
+              caseArr.push(caseName);
             }
             caseName = prompt("Введите дело");
         }
+        console.log(caseArr)
 
+       const caseElements = caseArr.map(text => {
+          const caseElement = document.createElement("li");
+          caseElement.classList.add("case-item");
+          caseElement.textContent = text;
+          return caseElement;
+       }) 
+       console.log(caseElements)
+       caseList.append(...caseElements);
     </script>
 
 

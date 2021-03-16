@@ -21,6 +21,10 @@
             align-items: flex-start;
         }
 
+        .delete-case {
+            cursor: pointer;
+        }
+
     </style>
 </head>
 
@@ -38,13 +42,31 @@
         Прекратить, когда пользователь нажмет Cancel.
         */
         const caseList = document.getElementById("case-list");
+       
         let caseName = prompt("Введите дело");
-
+        
         while(caseName !== null){
+         
             if(caseName !== ""){
+          
+                /*
+                <li class="case-item">gggg
+                    <span class="delete-case">X</span>
+                </li>
+                */
                 const caseElement = document.createElement("li");
                 caseElement.classList.add("case-item");
-                caseElement.textContent = caseName;
+
+                caseElement.insertAdjacentHTML("beforeend", `
+                    ${caseName}
+                    <span class="delete-case">X</span>
+                  `);
+                  const deleteButton = caseElement.querySelector(".delete-case")
+                  deleteButton.addEventListener("click", function(){
+                    const caseElement = this.closest("li");
+                    caseElement.remove()
+                  })
+               
                 caseList.append(caseElement);
             }
             caseName = prompt("Введите дело");

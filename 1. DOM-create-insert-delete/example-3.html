@@ -16,47 +16,21 @@
 
 <body>
     <div class="container">
-        <section>
+        <section id="blockquote-list">
             <blockquote>
                 <p id="first-quote">I invented my life by taking for granted that everything I did not like would have an opposite, which I would like.</p>
             </blockquote>                      
         </section>
     </div>
     <script>
-        
-        const firstQuote = document.getElementById("first-quote");
-
-        const newQuote = document.createElement("blockquote");
-
-        const firstText = "На Темную сторону Силы любовь к БДСМ приводит.";
-        
-        newQuote.innerHTML = `<p>${firstText}</p>`;
-        
-        const firstQuoteParent = firstQuote.closest("blockquote");
-        
-        firstQuoteParent.after(newQuote);
-        /*
-        const firstQuoteP = document.createElement("p");
-
-        firstQuoteP.textContent = "На Темную сторону Силы любовь к БДСМ приводит.";
-        
-        newQuote.append(firstQuoteP);
-        
-        const firstQuoteParent = firstQuote.closest("blockquote");
-        
-        firstQuoteParent.after(newQuote);
-        
-        const secondNewQuote = document.createElement("blockquote");
-        
-        const secondQuoteP = document.createElement("p");
-        
-        secondQuoteP.textContent = "Идите нахер";
-        
-        secondNewQuote.append(secondQuoteP);
-        
-        newQuote.after(secondNewQuote);
-
-        */
+            const blockquoteList = document.getElementById("blockquote-list")
+            // console.log(blockquoteList.innerHTML)
+            // blockquoteList.innerHTML = "<p>Привет, <a href='#' class='person-item'>пацаны!</a></p>";
+            blockquoteList.insertAdjacentHTML("beforebegin", `<p>Текст до тега</p>`);
+            blockquoteList.insertAdjacentHTML("afterend", `<p>Текст после тега</p>`);
+            blockquoteList.insertAdjacentHTML("afterbegin", `<p>Текст внутри тега в самом начале</p>`);
+            blockquoteList.insertAdjacentHTML("beforeend", `<p>Текст внутри тега в самом конце</p>`);
+          
         
     </script>
 
